@@ -129,9 +129,10 @@ PRODUCT_PACKAGES += \
 
 # Optional packages
 PRODUCT_PACKAGES += \
-    LiveWallpapersPicker \
     PhotoTable \
     Terminal
+#     BPOS
+#     LiveWallpapersPicker \
 
 # Custom Lineage packages
 PRODUCT_PACKAGES += \
@@ -140,12 +141,17 @@ PRODUCT_PACKAGES += \
     LineageSetupWizard \
     Eleven \
     ExactCalculator \
-    Jelly \
-    LockClock \
     Trebuchet \
     Updater \
     WallpaperPicker \
     WeatherProvider
+#     BPOS
+#     Jelly \
+#     LockClock \
+    
+# Custom Boring Phone OS packages
+PRODUCT_PACKAGES += \
+    OsmAnd
 
 # Exchange support
 PRODUCT_PACKAGES += \
