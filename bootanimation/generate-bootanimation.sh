@@ -5,33 +5,37 @@ HEIGHT="$2"
 HALF_RES="$3"
 OUT="$ANDROID_PRODUCT_OUT/obj/BOOTANIMATION"
 
+# If `zip` file is present use it
+if [[ -f "vendor/lineage/bootanimation/bootanimation.zip" ]]; then
+  cp -a "vendor/lineage/bootanimation/bootanimation.zip" "$OUT/bootanimation.zip"
+  exit 0
+fi
+
+# Ensure orientation is correct
 if [ "$HEIGHT" -lt "$WIDTH" ]; then
     IMAGEWIDTH="$HEIGHT"
+    IMAGEHEIGHT="$WIDTH"
 else
     IMAGEWIDTH="$WIDTH"
+    IMAGEHEIGHT="$HEIGHT"
 fi
 
-IMAGESCALEWIDTH="$IMAGEWIDTH"
-IMAGESCALEHEIGHT=$(expr $IMAGESCALEWIDTH / 3)
-
-if [ "$HALF_RES" = "true" ]; then
-    IMAGEWIDTH=$(expr $IMAGEWIDTH / 2)
-fi
-
-IMAGEHEIGHT=$(expr $IMAGEWIDTH / 3)
-
+# Set resolution
 RESOLUTION=""$IMAGEWIDTH"x"$IMAGEHEIGHT""
 
-for part_cnt in 0 1 2 3 4
-do
-    mkdir -p $ANDROID_PRODUCT_OUT/obj/BOOTANIMATION/bootanimation/part$part_cnt
-done
+# Extract `tar` file
 tar xfp "vendor/lineage/bootanimation/bootanimation.tar" -C "$OUT/bootanimation/"
-mogrify -resize $RESOLUTION -colors 250 "$OUT/bootanimation/"*"/"*".png"
 
-# Create desc.txt
-echo "$WIDTH $HEIGHT" 60 > "$OUT/bootanimation/desc.txt"
-cat "vendor/lineage/bootanimation/desc.txt" >> "$OUT/bootanimation/desc.txt"
+if [[ ! -f "$OUT/bootanimation/desc.txt" ]]; then
+  echo "ERROR! 'desc.txt' missing from 'vendor/lineage/bootanimation/bootanimation.tar'"
+  exit 1
+fi
+
+# Resize files
+mogrify -resize $RESOLUTION -colors 250 "$OUT/bootanimation/part"*"/"*".png"
+
+# *replace resolution in first line of desc.txt with correct resolution
+sed -i -r "s/^[0-9]+ [0-9]+/$IMAGEWIDTH $IMAGEHEIGHT/" "$OUT/bootanimation/desc.txt"
 
 # Create bootanimation.zip
 cd "$OUT/bootanimation"
