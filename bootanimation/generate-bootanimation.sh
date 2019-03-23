@@ -6,7 +6,7 @@ HALF_RES="$3"
 OUT="$ANDROID_PRODUCT_OUT/obj/BOOTANIMATION"
 
 # If `zip` file is present use it
-if [[ -f "vendor/lineage/bootanimation/bootanimation.zip" ]]; then
+if [ -f "vendor/lineage/bootanimation/bootanimation.zip" ]; then
   cp -a "vendor/lineage/bootanimation/bootanimation.zip" "$OUT/bootanimation.zip"
   exit 0
 fi
@@ -24,17 +24,14 @@ fi
 RESOLUTION=""$IMAGEWIDTH"x"$IMAGEHEIGHT""
 
 
-# Check output directory exists
-if [[ ! -d "$OUT/bootanimation" ]]; then
-  echo "ERROR! Bootanimation output directory does not exist"
-  exit 1
-fi
+# Create output directory exists
+mkdir -p "$OUT/bootanimation"
 # Clean bootanimation dir
 rm -rf "$OUT/bootanimation/*"
 # Extract `tar` file
 tar xfp "vendor/lineage/bootanimation/bootanimation.tar" -C "$OUT/bootanimation/"
 
-if [[ ! -f "$OUT/bootanimation/desc.txt" ]]; then
+if [ ! -f "$OUT/bootanimation/desc.txt" ]; then
   echo "ERROR! 'desc.txt' missing from 'vendor/lineage/bootanimation/bootanimation.tar'"
   exit 1
 fi
