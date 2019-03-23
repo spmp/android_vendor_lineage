@@ -23,6 +23,14 @@ fi
 # Set resolution
 RESOLUTION=""$IMAGEWIDTH"x"$IMAGEHEIGHT""
 
+
+# Check output directory exists
+if [[ ! -d "$OUT/bootanimation" ]]; then
+  echo "ERROR! Bootanimation output directory does not exist"
+  exit 1
+fi
+# Clean bootanimation dir
+rm -rf "$OUT/bootanimation/*"
 # Extract `tar` file
 tar xfp "vendor/lineage/bootanimation/bootanimation.tar" -C "$OUT/bootanimation/"
 
