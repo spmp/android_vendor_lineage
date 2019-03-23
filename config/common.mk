@@ -129,9 +129,11 @@ PRODUCT_PACKAGES += \
 
 # Optional packages
 PRODUCT_PACKAGES += \
-    LiveWallpapersPicker \
     PhotoTable \
     Terminal
+# Removed for BP
+#     LiveWallpapersPicker \
+    
 
 # Custom Lineage packages
 PRODUCT_PACKAGES += \
@@ -140,12 +142,14 @@ PRODUCT_PACKAGES += \
     LineageSetupWizard \
     Eleven \
     ExactCalculator \
-    Jelly \
-    LockClock \
     TrebuchetQuickStep \
     Updater \
     WallpaperPicker \
     WeatherProvider
+# Removed for BP
+#     Jelly \
+#     LockClock \
+
 
 # Exchange support
 PRODUCT_PACKAGES += \
