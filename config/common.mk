@@ -239,12 +239,13 @@ PRODUCT_PACKAGES_DEBUG += \
     strace
 
 # Conditionally build in su
-ifneq ($(TARGET_BUILD_VARIANT),user)
-ifeq ($(WITH_SU),true)
+# BP: SECURITY WARNING:Enable SU by default
+# ifneq ($(TARGET_BUILD_VARIANT),user)
+# ifeq ($(WITH_SU),true)
 PRODUCT_PACKAGES += \
     su
-endif
-endif
+# endif
+# endif
 
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/lineage/overlay
 DEVICE_PACKAGE_OVERLAYS += vendor/lineage/overlay/common
