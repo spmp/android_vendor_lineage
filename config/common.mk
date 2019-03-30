@@ -150,7 +150,10 @@ PRODUCT_PACKAGES += \
 #     Jelly \
 #     LockClock \
 
-
+# BP packages
+PRODUCT_PACKAGES += \
+    OSMAnd
+    
 # Exchange support
 PRODUCT_PACKAGES += \
     Exchange2
