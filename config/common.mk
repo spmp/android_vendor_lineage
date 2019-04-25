@@ -152,7 +152,8 @@ PRODUCT_PACKAGES += \
 
 # BP packages
 PRODUCT_PACKAGES += \
-    OSMAnd
+    OSMAnd \
+    Signal
     
 # Exchange support
 PRODUCT_PACKAGES += \
