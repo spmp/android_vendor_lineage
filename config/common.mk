@@ -156,7 +156,8 @@ PRODUCT_PACKAGES += \
 # BP packages
 PRODUCT_PACKAGES += \
     OSMAnd \
-    Signal
+    Signal \
+    DAVx5
     
 # Exchange support
 PRODUCT_PACKAGES += \
