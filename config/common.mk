@@ -132,6 +132,7 @@ PRODUCT_PACKAGES += \
 
 # Optional packages
 PRODUCT_PACKAGES += \
+    LiveWallpapersPicker \
     PhotoTable \
     Terminal
 # Removed for BP
@@ -145,6 +146,8 @@ PRODUCT_PACKAGES += \
     LineageSetupWizard \
     Eleven \
     ExactCalculator \
+    Jelly \
+    LockClock \
     TrebuchetQuickStep \
     Updater \
     WallpaperPicker \
@@ -154,10 +157,10 @@ PRODUCT_PACKAGES += \
 #     LockClock \
 
 # BP packages
-PRODUCT_PACKAGES += \
-    OSMAnd \
-    Signal \
-    DAVx5
+# PRODUCT_PACKAGES += \
+#     OSMAnd \
+#     Signal \
+#     DAVx5
     
 # Exchange support
 PRODUCT_PACKAGES += \
@@ -248,12 +251,14 @@ PRODUCT_PACKAGES_DEBUG += \
 
 # Conditionally build in su
 # BP: SECURITY WARNING:Enable SU by default
-# ifneq ($(TARGET_BUILD_VARIANT),user)
-# ifeq ($(WITH_SU),true)
+# PRODUCT_PACKAGES += \
+#     su
+ifneq ($(TARGET_BUILD_VARIANT),user)
+ifeq ($(WITH_SU),true)
 PRODUCT_PACKAGES += \
     su
-# endif
-# endif
+endif
+endif
 
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/lineage/overlay
 DEVICE_PACKAGE_OVERLAYS += vendor/lineage/overlay/common
