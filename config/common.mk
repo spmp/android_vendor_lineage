@@ -146,7 +146,6 @@ PRODUCT_PACKAGES += \
     LineageSetupWizard \
     Eleven \
     ExactCalculator \
-    Jelly \
     LockClock \
     TrebuchetQuickStep \
     Updater \
@@ -157,9 +156,9 @@ PRODUCT_PACKAGES += \
 #     LockClock \
 
 # BP packages
-# PRODUCT_PACKAGES += \
-#     OSMAnd \
-#     Signal \
+PRODUCT_PACKAGES += \
+    OSMAnd \
+    Signal 
 #     DAVx5
     
 # Exchange support
@@ -251,8 +250,8 @@ PRODUCT_PACKAGES_DEBUG += \
 
 # Conditionally build in su
 # BP: SECURITY WARNING:Enable SU by default
-# PRODUCT_PACKAGES += \
-#     su
+PRODUCT_PACKAGES += \
+    su
 ifneq ($(TARGET_BUILD_VARIANT),user)
 ifeq ($(WITH_SU),true)
 PRODUCT_PACKAGES += \
