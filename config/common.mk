@@ -156,16 +156,12 @@ PRODUCT_PACKAGES += \
 #     LockClock \
 
 # BP packages
-ifdef BUILD_OSMAND
+# OSMAnd
 PRODUCT_PACKAGES += OSMAnd
-endif
-ifdef BUILD_SIGNAL
+# Signal
 PRODUCT_PACKAGES += Signal
-endif
-ifdef BUILD_DAVX5
+# DAVx5
 PRODUCT_PACKAGES += DAVx5
-endif
-
 
 # Exchange support
 PRODUCT_PACKAGES += \
