@@ -162,6 +162,8 @@ PRODUCT_PACKAGES += OSMAnd
 PRODUCT_PACKAGES += Signal
 # DAVx5
 PRODUCT_PACKAGES += DAVx5
+# AntennaPod
+PRODUCT_PACKAGES += AntennaPod
 
 # Exchange support
 PRODUCT_PACKAGES += \
