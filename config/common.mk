@@ -164,6 +164,8 @@ PRODUCT_PACKAGES += Signal
 PRODUCT_PACKAGES += DAVx5
 # AntennaPod
 PRODUCT_PACKAGES += AntennaPod
+# Magic gestures library
+LOCAL_SHARED_LIBRARIES += libjni_latinimegoogle-prebuilt
 
 # Exchange support
 PRODUCT_PACKAGES += \
