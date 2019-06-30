@@ -168,7 +168,7 @@ PRODUCT_PACKAGES += AntennaPod
 # Notepad
 PRODUCT_PACKAGES += Notepad
 # Magic gestures library
-PRODUCT_PACKAGES += libjni_latinimegoogle
+PRODUCT_PACKAGES += libjni_latinimegoogle.so
 
 # Exchange support
 PRODUCT_PACKAGES += \
